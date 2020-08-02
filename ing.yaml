@@ -14,3 +14,7 @@ spec:
         backend:
          serviceName: cicd
          servicePort: 8080
+      - path: /nginx/?(.*)
+        backend:
+         serviceName: nginx
+         servicePort: 80
