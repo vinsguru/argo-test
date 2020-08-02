@@ -4,11 +4,13 @@ metadata:
   name: web-ingress
   annotations:
     kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
     nginx.ingress.kubernetes.io/ssl-redirect: "false"  
 spec:
   rules:
   - http:
       paths:
-      - backend:
+      - path: /cicd/?(.*)
+        backend:
          serviceName: cicd
          servicePort: 8080
